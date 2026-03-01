@@ -1,3 +1,8 @@
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.TreeSet;
+
 class Solution {
     public int minOperations(String s, int k) {
         int n = s.length();
