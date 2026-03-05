@@ -1,17 +1,17 @@
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
+import java.util.List;
 import java.util.TreeSet;
 
 class Solution {
     public int minOperations(String s, int k) {
         int n = s.length();
 
-        TreeSet<Integer>[] ts = new TreeSet[2];
-        Arrays.setAll(ts, i -> new TreeSet<>());
+        List<TreeSet<Integer>> ts = Arrays.asList(new TreeSet<>(), new TreeSet<>());
 
         for (int i = 0; i <= n; i++) {
-            ts[i % 2].add(i);
+            ts.get(i % 2).add(i);
         }
 
         int cnt0 = 0;
@@ -21,7 +21,7 @@ class Solution {
             }
         }
 
-        ts[cnt0 % 2].remove(cnt0);
+        ts.get(cnt0 % 2).remove(cnt0);
 
         Deque<Integer> q = new ArrayDeque<>();
         q.offer(cnt0);
@@ -37,7 +37,7 @@ class Solution {
                 int l = cur + k - 2 * Math.min(cur, k);
                 int r = cur + k - 2 * Math.max(k - n + cur, 0);
 
-                TreeSet<Integer> t = ts[l % 2];
+                TreeSet<Integer> t = ts.get(l % 2);
 
                 Integer next = t.ceiling(l);
                 while (next != null && next <= r) {
