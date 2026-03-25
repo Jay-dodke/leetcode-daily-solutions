@@ -1,7 +1,7 @@
 ---
 comments: true
 difficulty: Medium
-edit_url: 
+edit_url: https://github.com/Jay-dodke/leetcode-daily-solutions
 rating: 1672
 source: Weekly Contest 405 Q3
 tags:
